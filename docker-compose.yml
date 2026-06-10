@@ -1,0 +1,12 @@
+services:
+  momence-inbox-watcher:
+    build: .
+    image: momence-inbox-watcher
+    container_name: momence-inbox-watcher
+    env_file: .env
+    volumes:
+      - watcher-state:/data
+    restart: unless-stopped
+
+volumes:
+  watcher-state:
