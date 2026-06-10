@@ -19,7 +19,37 @@ cookie. This watcher replays that request. It is read-only and uses your own
 account's session — but note it relies on an **unofficial** endpoint that
 Momence could change at any time.
 
-## Quick start
+## Quick start (prebuilt image)
+
+No clone needed — grab the [.env.example](https://raw.githubusercontent.com/boydthomson/momence-inbox-watcher/main/.env.example),
+fill it in (3 things: host id, session cookie, notification URLs), then:
+
+```bash
+docker run -d --name momence-inbox-watcher \
+  --env-file .env \
+  -v momence-watcher-state:/data \
+  --restart unless-stopped \
+  ghcr.io/boydthomson/momence-inbox-watcher:latest
+docker logs -f momence-inbox-watcher
+```
+
+Or with compose:
+
+```yaml
+services:
+  momence-inbox-watcher:
+    image: ghcr.io/boydthomson/momence-inbox-watcher:latest
+    env_file: .env
+    volumes:
+      - watcher-state:/data
+    restart: unless-stopped
+volumes:
+  watcher-state:
+```
+
+Images are built for `linux/amd64` and `linux/arm64` (Raspberry Pi friendly).
+
+## Build from source
 
 ```bash
 git clone https://github.com/boydthomson/momence-inbox-watcher.git
