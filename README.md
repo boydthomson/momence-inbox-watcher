@@ -1,6 +1,6 @@
 # Momence Inbox Watcher
 
-Get notified **within a minute** when a client messages you in
+Get notified when a client messages you in
 [Momence](https://momence.com) — on Matrix, Telegram, Discord, Slack, ntfy,
 email, Pushover, or [any of ~80 services](https://github.com/caronc/apprise/wiki),
 instead of waiting for Momence's email alert (which can lag by hours).
